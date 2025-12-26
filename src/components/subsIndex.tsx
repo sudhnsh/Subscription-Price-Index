@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/ui/footer";
 import { Globe, LayoutGrid, List } from "lucide-react";
-import { mockPriceData } from "../data/mockData";
+import { priceData } from "../data/data";
 import { useFilters } from "../hooks/useFilters";
 import { Header } from "./header";
 import { Filters } from "./filters";
@@ -19,7 +19,7 @@ import {
 
 export default function PriceIndex() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [priceData] = useState(() => calculateInitialSavings(mockPriceData));
+  const [subscriptionData] = useState(() => calculateInitialSavings(priceData));
 
   const [viewMode, setViewMode] = useState<"compact" | "full">("compact");
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
@@ -28,8 +28,8 @@ export default function PriceIndex() {
 
   // NEW: Recalculate data based on selected home country
   const processedPriceData = useMemo(() => {
-    return recalculateSavingsForHomeCountry(priceData, selectedHomeCountry);
-  }, [priceData, selectedHomeCountry]);
+    return recalculateSavingsForHomeCountry(subscriptionData, selectedHomeCountry);
+  }, [subscriptionData, selectedHomeCountry]);
 
   // UPDATE: Use processed data instead of original data
   const {

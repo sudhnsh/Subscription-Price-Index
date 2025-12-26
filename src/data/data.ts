@@ -1,7 +1,7 @@
 import { Tv, Music, Play, Video, Monitor } from "lucide-react";
 import { SubscriptionItem } from "../types";
 
-export const mockPriceData: SubscriptionItem[] = [
+export const priceData: SubscriptionItem[] = [
   {
     id: 1,
     product: "Netflix Premium",
